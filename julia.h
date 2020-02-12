@@ -10,31 +10,21 @@
  #define JULIA_H
  
  
-  
+#include <stdlib.h> 
  
-unsigned int width=128;
-unsigned int hight=128;
+#define  width 128
+#define  hight 128
  
-float xmin=-2;
-float xmax=2;
- 
-float ymin=-2;
-float ymax=2;
- 
-	
-const float * x;
-const float * y;
+
 //constructur of tabel that translates number of element to coordinate
 float* axis(const unsigned int Leanght, const float min, const float max);
-
-unsigned char* JuliaSpace;
-
 unsigned char* CreateJuliaSpace();
 void DelateJuliaSpace(unsigned char*Space);
 unsigned char* GetJuliaSpace(void);
 void SetJuliaSpace(unsigned char* NewSpace);
+void SetJuliaElemetn(unsigned char x, unsigned char y, unsigned char value);
 
-
+void ValRefresh(CRe, CIm);
 unsigned char JuliaElement(float Z0Re,float Z0Im, float CRe, float CIm);
 
 void JuliaInit(void);
@@ -52,3 +42,4 @@ void JuliaOFF(void);
  
  
  #endif
+ 

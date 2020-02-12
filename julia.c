@@ -1,7 +1,18 @@
 #include "julia.h"
-#include <stdlib.h>
 
 
+
+float xmin=-2;
+float xmax=2;
+ 
+float ymin=-2;
+float ymax=2;
+ 
+	
+const float * x;
+const float * y;
+
+unsigned char* JuliaSpace;
 
 float* axis(unsigned int Leanght, float min, float max)
 {
@@ -60,3 +71,15 @@ unsigned char JuliaElement(float Z0Re,float Z0Im, float CRe, float CIm)
 		return iteration;
 		
 	}	
+
+void SetJuliaElemetn(unsigned char x, unsigned char y, unsigned char value);
+{
+JuliaSpace[x][y]=value;
+}
+
+void ValRefresh(float CRe, float CIm);
+{
+for(unsigned char i=0; i<128; i++)
+for(unsigned char j=0; j<128; j++)
+SetJuliaElemetn(i,j,JuliaElement(x[i],y[i],CRe,CIm));
+}
